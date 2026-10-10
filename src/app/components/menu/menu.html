@@ -1,0 +1,54 @@
+<main class="menu">
+  <div class="menuText">
+    <h1>قائمة الطعام</h1>
+  </div>
+
+  @if (products$ | async; as items) {
+    <form [formGroup]="menuForm" (ngSubmit)="onSubmit()" class="form">
+      <div class="boxMenu">
+        <div class="product">
+          @for (item of items; track item) {
+            <div class="productText">
+              <h1>{{ item['name'] }}</h1>
+            </div>
+
+            <div class="boxProducts">
+              @for (size of item['size']; track size) {
+                <div class="box">
+                  <img src="areekh.jpg" alt="" class="menuImg" />
+                  <h1>{{ size.name }}</h1>
+                  <p class="price">{{ size.price }} {{ size.priceName }}</p>
+                  <p>مكونات الطبق:</p>
+                  <span>{{ size.description }}</span>
+                  @if (item['selection'] && item['selection'].length > 0) {
+                    <span>يمكنك إضافة المكونات هذه أيضاً:</span>
+                    <div class="selectionMenu">
+                      @for (selection of item['selection']; track selection.formControlName) {
+                        <div class="option-item">
+                          <input
+                            type="checkbox"
+                            [id]="size.name + '-' + selection.formControlName"
+                            [name]="selection.formControlName"
+                            [formControlName]="size.name + '-' + selection.formControlName"
+                          />
+                          <label
+                            [for]="size.name + '-' + selection.formControlName"
+                            class="form-label"
+                            >{{ selection.name }}</label
+                          >
+                        </div>
+                      }
+                    </div>
+                  }
+                  <button type="submit" class="btn">إطلب الأن</button>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </form>
+  } @else {
+    <p>جاري تحميل القائمة ...</p>
+  }
+</main>

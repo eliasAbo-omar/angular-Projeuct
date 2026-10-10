@@ -1,0 +1,114 @@
+:host {
+  display: block;
+  min-height: calc(100vh - 75px);
+  color: var(--list-color);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  padding: 20px;
+
+  .menuText {
+    margin: 0 auto;
+  }
+
+  .form {
+    .boxMenu {
+      .product {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .productText {
+          margin: 0 auto;
+          min-width: 100px;
+          text-align: center;
+        }
+
+        .boxProducts {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 20px;
+
+          .box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            direction: rtl;
+            text-align: center;
+            border: 1px solid rgba(230, 213, 195, 0.2);
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            transition: 0.3s all ease-in-out;
+            box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+
+            &:hover {
+              border-color: var(--list-color);
+            }
+
+            .menuImg {
+              width: 100%;
+              max-height: 180px;
+              object-fit: cover;
+              padding: 10px;
+              transition: 0.3s all ease-in-out;
+              border-radius: 20px;
+
+              &:hover {
+                transform: scale(1.03);
+              }
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            span,
+            p {
+              margin: 0 auto;
+            }
+
+            .selectionMenu {
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+
+              .option-item {
+                padding: 8px 8px;
+
+                .form-label {
+                  margin: 0 10px 0 0;
+                  font-size: 14px;
+                  font-weight: bold;
+                }
+              }
+            }
+
+            .btn {
+              padding: 8px 16px;
+              border-radius: 8px;
+              min-width: 100%;
+              border: none;
+              outline: none;
+              color: var(--background-sidebar);
+              background-color: var(--list-color);
+              transition: 0.3s all ease-in-out;
+              cursor: pointer;
+              font-weight: bold;
+              box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+
+              &:hover {
+                color: var(--list-color);
+                background-color: var(--hover-font);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

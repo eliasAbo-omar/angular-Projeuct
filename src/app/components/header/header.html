@@ -1,0 +1,16 @@
+<header class="head">
+  <a routerLink="/" class="logo">
+    <img [src]="srcImage" alt="logo" class="logo-img" />
+  </a>
+
+  <div class="menu">
+    @for (url of Links; track url.name) {
+      <a [routerLink]="url.path">{{ url.name | titlecase }}</a>
+    }
+  </div>
+
+  <div class="log-box">
+    <button routerLink="/login">Log in</button>
+    <button routerLink="/signup">Sign up</button>
+  </div>
+</header>
