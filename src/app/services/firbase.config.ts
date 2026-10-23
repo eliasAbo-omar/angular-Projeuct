@@ -2,7 +2,13 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getAnalytics } from 'firebase/analytics';
+import { getStorage } from 'firebase/storage';
 import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'firebase/app-check';
+import { isDevMode } from '@angular/core';
+
+if (isDevMode()) {
+  (self as any).FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+}
 
 const firebaseInit = {
   apiKey: 'AIzaSyBxKpGTqp0U6rbAyqNLiG4_4ISU35w2Ir8',
@@ -19,6 +25,7 @@ export const firebaseApp = initializeApp(firebaseInit);
 export const auth = getAuth(firebaseApp);
 export const db = getFirestore(firebaseApp);
 export const analytics = getAnalytics(firebaseApp);
+export const storage = getStorage(firebaseApp);
 
 initializeAppCheck(firebaseApp, {
   provider: new ReCaptchaEnterpriseProvider('6Ldx4ectAAAAAOhNE9SQW7D651pgVcOKzeORSHsk'),

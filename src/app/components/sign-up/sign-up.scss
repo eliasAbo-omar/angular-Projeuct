@@ -8,13 +8,14 @@ main {
   position: relative;
   top: 50%;
   left: 50%;
+  margin-top: 30px;
   transform: translate(-50%, -50%);
   max-width: 400px;
   min-height: 400px;
   padding: 10px;
+  gap: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   border-radius: 8px;
   border: 2px solid var(--list-color);
   backdrop-filter: blur(10px);
@@ -65,7 +66,6 @@ form {
     width: 150px;
     height: 150px;
     border: 2px solid var(--list-color);
-    cursor: pointer;
   }
 
   .username,
@@ -79,7 +79,9 @@ form {
     padding: 5px;
     align-items: center;
     transition: 0.3s all ease-in-out;
+    margin-bottom: 10px;
     gap: 10px;
+    position: relative;
 
     label {
       flex: 1;
@@ -111,10 +113,6 @@ form {
         background-color: var(--background-color);
         border-radius: 8px;
       }
-    }
-
-    span {
-      display: none;
     }
   }
 
@@ -165,5 +163,28 @@ form {
   &:hover {
     color: var(--list-color);
     background-color: var(--hover-font);
+  }
+}
+
+.error-container {
+  position: absolute;
+  bottom: -25px;
+  left: 10px;
+  width: 100%;
+
+  span {
+    color: red;
+    font-size: 11px;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 5px;
+    white-space: nowrap;
+  }
+}
+
+.gender,
+.password {
+  .error-container {
+    bottom: -15px;
   }
 }

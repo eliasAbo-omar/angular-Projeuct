@@ -5,7 +5,8 @@ export interface User {
   password: string;
   confirmPassword: string;
   email: string;
-  gender: 'male' | 'female';
+  gender: string;
+  createdAt: Date;
   img?: string;
   settings?: {
     notifications?: boolean;
