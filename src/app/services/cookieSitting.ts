@@ -3,7 +3,7 @@ export function setCookie(name: string, value: string, daysToLive: number, path:
   date.setTime(date.getTime() + daysToLive * 24 * 60 * 60 * 1000);
   const expire = 'expires=' + date.toUTCString();
 
-  document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; ${expire}; path=${path}; SameSite=Lax`;
+  document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; ${expire}; path=${path}; Secure; HttpOnly; SameSite=Lax`;
 }
 
 export function deleteCookie(name: string) {
